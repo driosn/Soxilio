@@ -45,7 +45,7 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
             keyIterator_int = Integer.parseInt(keyIterator_string);
             for(int i=1; i<=keyIterator_int; i++){
                 //Toast.makeText(this,  numbers.getString(Integer.toString(i), ""), Toast.LENGTH_SHORT).show();
-                numeros.add("+591" + numbers.getString(Integer.toString(i), ""));
+                numeros.add(numbers.getString(Integer.toString(i), ""));
             }
         }
 
@@ -62,11 +62,14 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_aceptar:
-                keyNumber++;
                 SharedPreferences preferencias = getSharedPreferences("numbers", Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor = preferencias.edit();
                 SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
                 SharedPreferences.Editor obj_editor_key = keyPreferences.edit();
+
+                keyNumber = Integer.parseInt(keyPreferences.getString("keyVal", "0"));
+                keyNumber++;
+
                 obj_editor.putString(Integer.toString(keyNumber), numero.getText().toString());
                 obj_editor.commit();
                 obj_editor_key.putString("keyVal", Integer.toString(keyNumber));
