@@ -18,14 +18,7 @@
         android:text="@string/ingrese_numero"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/enter_number"
-<<<<<<< HEAD
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/happy_monkey"/>
-=======
         app:fontFamily="@font/happy_monkey" />
->>>>>>> Interfaz
 
 
     <android.support.design.widget.TextInputLayout
@@ -40,13 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ingrese_numero_de_confianza"
-<<<<<<< HEAD
-            android:inputType="number"
-            android:fontFamily="@font/happy_monkey"/>
-=======
             android:fontFamily="@font/happy_monkey"
             android:inputType="number" />
->>>>>>> Interfaz
 
     </android.support.design.widget.TextInputLayout>
 
@@ -63,13 +51,8 @@
             android:layout_marginHorizontal="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:fontFamily="@font/happy_monkey"
-            style="@style/button_style"/>
-=======
             style="@style/button_style"
             android:fontFamily="@font/happy_monkey"/>
->>>>>>> Interfaz
 
         <Button
             android:id="@+id/btn_reiniciar"
@@ -79,13 +62,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/button_style"
-<<<<<<< HEAD
-            android:fontFamily="@font/happy_monkey"
-            android:onClick="reiniciarContactos"/>
-=======
             android:onClick="reiniciarContactos"
             android:fontFamily="@font/happy_monkey"/>
->>>>>>> Interfaz
 
     </LinearLayout>
 
