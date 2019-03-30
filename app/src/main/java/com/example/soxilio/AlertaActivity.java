@@ -3,7 +3,6 @@ package com.example.soxilio;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -19,18 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-
-public class AlertaActivity extends AppCompatActivity implements View.OnClickListener {
-
-    CardView cardOne, cardTwo, cardThree, cardFour;
-    private static final int PERMISSION_REQUEST_CODE = 1;
-    List<String> numeros = new ArrayList<>();
-    String keyIterator_string = "";
-    int keyIterator_int = 0;
-=======
 public class AlertaActivity extends AppCompatActivity implements View.OnClickListener, LocationListener {
 
     CardView cardOne, cardTwo, cardThree, cardFour;
@@ -44,7 +31,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private Handler mHandler = new Handler();
 
 
->>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +62,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
 
-<<<<<<< HEAD
-        createArrayNumbers();
-=======
         // GPS
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -92,7 +75,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
->>>>>>> master
     }
 
     @Override
@@ -100,18 +82,15 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
 
             case R.id.card_one:
-                mandarSmsContactos();
+                mandarSms();
                 break;
 
             case R.id.card_two:
-                //openWhatsApp(v);
+                openWhatsApp(v);
                 break;
 
             case R.id.card_three:
-<<<<<<< HEAD
-=======
                 startRepeating();
->>>>>>> master
                 break;
 
             case R.id.card_four:
@@ -121,10 +100,10 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void mandarUnSms(String phoneNumber){
+    private void mandarSms(){
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("+591" + phoneNumber,null,"" +
+            smsManager.sendTextMessage("+59167305722",null,"" +
                     "Hay un Terremoto ayuda :'v ",null,null);
             Toast.makeText(getApplicationContext(),"Mensaje Enviado",Toast.LENGTH_SHORT).show();
         }
@@ -135,13 +114,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void mandarSmsContactos(){
-        for(int i=0; i<numeros.size(); i++){
-            mandarUnSms(numeros.get(i));
-        }
-    }
-
-    /*public void openWhatsApp(View view){
+    public void openWhatsApp(View view){
         try {
             String text = "This is a test";
             String toNumber = "+59167305722";
@@ -152,24 +125,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         catch (Exception e){
             e.printStackTrace();
         }
-    }*/
-
-    public void createArrayNumbers(){
-        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
-        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
-
-        keyIterator_string = keyPreferences.getString("keyVal", "");
-        if(keyIterator_string.length() != 0){
-            keyIterator_int = Integer.parseInt(keyIterator_string);
-            for(int i=1; i<=keyIterator_int; i++){
-                //Toast.makeText(this,  numbers.getString(Integer.toString(i), ""), Toast.LENGTH_SHORT).show();
-                numeros.add(numbers.getString(Integer.toString(i), ""));
-                Log.d("numbers: ", numbers.getString(Integer.toString(i), ""));
-            }
-        }
     }
-<<<<<<< HEAD
-=======
 
     // GPS
 
@@ -179,7 +135,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
                 +"Longitud: "+location.getLongitude();
 
 //        Toast.makeText(getApplicationContext(),"Mi ubicacion actual es Latitud: "
-  //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
+        //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -216,7 +172,4 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-
-
->>>>>>> master
 }

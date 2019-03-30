@@ -9,7 +9,6 @@
     tools:context=".ConfigurarActivity"
     android:focusable="true"
     android:focusableInTouchMode="true">
-
     <TextView
         android:layout_marginTop="30dp"
         android:text="@string/ingrese_numero"
@@ -35,13 +34,33 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_aceptar"
-        android:layout_marginTop="30dp"
-        android:text="Aceptar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/button_style"/>
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_aceptar"
+            android:layout_marginTop="30dp"
+            android:text="@string/guardar"
+            android:layout_marginHorizontal="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/button_style"/>
+
+        <Button
+            android:id="@+id/btn_reiniciar"
+            android:layout_marginTop="30dp"
+            android:text="@string/reiniciar_contactos"
+            android:layout_marginHorizontal="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/button_style"
+            android:onClick="reiniciarContactos"/>
+
+    </LinearLayout>
+
 
     <ListView
         android:id="@+id/lista_numeros"
