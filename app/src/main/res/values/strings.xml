@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Soxilio</string>
+    <string name="soxilio">SOXILIO</string>
+    <string name="ingrese_numero">Ingrese Numero</string>
+    <string name="ingrese_numero_de_confianza">Ingrese numero de confianza</string>
 </resources>
