@@ -21,14 +21,15 @@
         android:layout_height="match_parent"
         android:layout_weight="0.7" android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/soxilio"
-            android:fontFamily="monospace"
-            android:textFontWeight="bold"
-            android:textSize="40sp"
-            android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="@string/soxilio"
+                android:textColor="@color/colorPrimary"
+                android:textFontWeight="bold"
+                android:textSize="40sp"
+                app:fontFamily="@font/happy_monkey" />
 
         </RelativeLayout>
 
@@ -50,6 +51,7 @@
                 android:id="@+id/btn_alerta"
                 android:text="Alerta"
                 style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
@@ -57,6 +59,7 @@
                 android:id="@+id/btn_juegos"
                 android:text="Juegos"
                 style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
@@ -64,6 +67,7 @@
                 android:id="@+id/btn_configurar"
                 android:text="Configurar"
                 style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
@@ -71,6 +75,7 @@
                 android:id="@+id/btn_informacion"
                 android:text="Informacion"
                 style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
@@ -79,6 +84,7 @@
                 android:text="Como usar"
                 android:layout_marginBottom="40dp"
                 style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 

@@ -15,7 +15,8 @@
         android:textSize="@dimen/enter_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/happy_monkey"/>
 
 
     <android.support.design.widget.TextInputLayout
@@ -30,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ingrese_numero_de_confianza"
-            android:inputType="number" />
+            android:inputType="number"
+            android:fontFamily="@font/happy_monkey"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -47,6 +49,7 @@
             android:layout_marginHorizontal="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/happy_monkey"
             style="@style/button_style"/>
 
         <Button
@@ -57,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/button_style"
+            android:fontFamily="@font/happy_monkey"
             android:onClick="reiniciarContactos"/>
 
     </LinearLayout>
@@ -65,7 +69,8 @@
     <ListView
         android:id="@+id/lista_numeros"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:fontFamily="@font/happy_monkey"/>
 
 
 </LinearLayout>
