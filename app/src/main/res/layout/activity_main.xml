@@ -7,18 +7,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp" />
-
+    
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -27,35 +22,38 @@
             <Button
                 android:id="@+id/btn_alerta"
                 android:text="Alerta"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_juegos"
                 android:text="Juegos"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_configurar"
                 android:text="Configurar"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_informacion"
                 android:text="Informacion"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_como_usar"
                 android:text="Como usar"
-                android:layout_width="wrap_content"
+                android:layout_marginBottom="40dp"
+                style="@style/button_style"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
-
-
-
 
         </LinearLayout>
 
