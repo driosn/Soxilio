@@ -135,7 +135,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
                 +"Longitud: "+location.getLongitude();
 
 //        Toast.makeText(getApplicationContext(),"Mi ubicacion actual es Latitud: "
-  //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
+        //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -172,6 +172,4 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-
-
 }
