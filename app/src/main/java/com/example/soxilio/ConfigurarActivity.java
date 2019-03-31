@@ -42,14 +42,6 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
 
         SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
         SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
-        //Para limpiar el almacenamiento del teléfono
-        /*SharedPreferences.Editor keyPreferences_editor = keyPreferences.edit();
-        SharedPreferences.Editor numbers_editor = numbers.edit();
-        keyPreferences_editor.clear();
-        keyPreferences_editor.commit();
-        numbers_editor.clear();
-        numbers_editor.commit();*/
-
 
         keyIterator_string = keyPreferences.getString("keyVal", "");
         if(keyIterator_string.length() != 0){
@@ -168,6 +160,19 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
                 numero.setText("");
                 break;
         }
+    }
+
+    public void reiniciarContactos(View view) {
+        //Para limpiar el almacenamiento del teléfono
+
+        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
+        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
+        SharedPreferences.Editor keyPreferences_editor = keyPreferences.edit();
+        SharedPreferences.Editor numbers_editor = numbers.edit();
+        keyPreferences_editor.clear();
+        keyPreferences_editor.commit();
+        numbers_editor.clear();
+        numbers_editor.commit();
 
     }
 }

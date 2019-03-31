@@ -13,7 +13,8 @@
         android:text="Ingrese Numero"
         android:textSize="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/edit_numero"
@@ -21,14 +22,33 @@
         android:inputType="number"
         android:hint="Ingrese numero de confianza"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/EditTextBlue"/>
 
-    <Button
-        android:id="@+id/btn_aceptar"
-        android:layout_marginTop="30dp"
-        android:text="Aceptar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_aceptar"
+            android:text="@string/guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/RaisedButtonDark"
+            android:layout_marginHorizontal="30dp"/>
+
+        <Button
+            android:id="@+id/btn_reiniciarContactos"
+            android:text="@string/reiniciar_contactos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="reiniciarContactos"
+            style="@style/RaisedButtonDark"
+            android:layout_marginHorizontal="30dp"/>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/lista_numeros"
