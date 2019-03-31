@@ -52,7 +52,7 @@
 
                         <ImageView
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_launcher_foreground"
+                            android:src="@drawable/icons8_gas_50"
                             android:layout_width="45dp"
                             android:layout_height="45dp" />
 
@@ -90,7 +90,7 @@
 
                         <ImageView
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_launcher_foreground"
+                            android:src="@drawable/icons8_elemento_agua_filled_50"
                             android:layout_width="45dp"
                             android:layout_height="45dp" />
 
@@ -131,7 +131,7 @@
 
                         <ImageView
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_launcher_foreground"
+                            android:src="@drawable/icons8_terremotos_50"
                             android:layout_width="45dp"
                             android:layout_height="45dp" />
 
@@ -168,7 +168,7 @@
 
                         <ImageView
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_launcher_foreground"
+                            android:src="@drawable/icons8_eliminar_26"
                             android:layout_width="45dp"
                             android:layout_height="45dp" />
 

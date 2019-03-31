@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_informacion:
-                Intent intent4 = new Intent(getApplicationContext(),InformacionActivity.class);
+                Intent intent4 = new Intent(getApplicationContext(),p2pActivity.class);
                 startActivity(intent4);
                 break;
 

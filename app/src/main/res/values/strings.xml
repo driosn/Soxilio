@@ -6,7 +6,6 @@
     <string name="guardar">Guardar</string>
     <string name="reiniciar_contactos">Reiniciar Contactos</string>
     <string name="terremoto">Terremoto</string>
-    <string name="incendio">Incendio</string>
     <string name="inundacion">Inundacion</string>
     <string name="envio_activado">EL envio de automatico de mensajes esta activado cada 10 minutos, Apagarlo si se encuentra a salvo</string>
     <string name="envio_desactivado">Envio Automatico Desactivado</string>
@@ -18,5 +17,6 @@
     <string name="inundaciones">Inundaciones</string>
     <string name="terremotos">Terremotos</string>
     <string name="parar_el_envio">Parar el envio</string>
+    <string name="gracias">Estoy bien Gracias</string>
 
 </resources>

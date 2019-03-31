@@ -129,6 +129,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.card_four:
                 stopRepeating();
                 aux = 0;
+                mandarSmsContactos(getString(R.string.gracias));
                 txtTip.setText(R.string.envio_desactivado);
                 break;
 
