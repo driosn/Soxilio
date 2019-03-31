@@ -2,6 +2,8 @@ package com.example.soxilio;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +33,7 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
     public int keyIterator_int = 0;
     int position_item;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,27 +43,7 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
         aceptar = findViewById(R.id.btn_aceptar);
         numeros = new ArrayList<>();
 
-        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
-        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
-        //Para limpiar el almacenamiento del teléfono
-        /*SharedPreferences.Editor keyPreferences_editor = keyPreferences.edit();
-        SharedPreferences.Editor numbers_editor = numbers.edit();
-        keyPreferences_editor.clear();
-        keyPreferences_editor.commit();
-        numbers_editor.clear();
-        numbers_editor.commit();*/
-
-
-        keyIterator_string = keyPreferences.getString("keyVal", "");
-        if(keyIterator_string.length() != 0){
-            keyIterator_int = Integer.parseInt(keyIterator_string);
-            for(int i=1; i<=keyIterator_int; i++){
-                //Toast.makeText(this,  numbers.getString(Integer.toString(i), ""), Toast.LENGTH_SHORT).show();
-                if(numbers.getString(Integer.toString   (i), "").length() > 1){
-                    numeros.add(numbers.getString(Integer.toString(i), ""));
-                }
-            }
-        }
+        actualizarLista();
 
         lsNumeros = findViewById(R.id.lista_numeros);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, numeros);
@@ -145,6 +128,22 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
         menu.show();
     }*/
 
+    public void actualizarLista(){
+        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
+        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
+
+        keyIterator_string = keyPreferences.getString("keyVal", "");
+        if(keyIterator_string.length() != 0){
+            keyIterator_int = Integer.parseInt(keyIterator_string);
+            for(int i=1; i<=keyIterator_int; i++){
+                //Toast.makeText(this,  numbers.getString(Integer.toString(i), ""), Toast.LENGTH_SHORT).show();
+                if(numbers.getString(Integer.toString   (i), "").length() > 1){
+                    numeros.add(numbers.getString(Integer.toString(i), ""));
+                }
+            }
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -169,5 +168,17 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
 
+    }
+
+    public void reiniciarContactos(View view) {
+        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
+        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
+        SharedPreferences.Editor keyPreferences_editor = keyPreferences.edit();
+        SharedPreferences.Editor numbers_editor = numbers.edit();
+        keyPreferences_editor.clear();
+        keyPreferences_editor.commit();
+        numbers_editor.clear();
+        numbers_editor.commit();
+        actualizarLista();
     }
 }

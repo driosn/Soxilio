@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context="com.example.soxilio.MainActivity"
+    android:background="@android:color/white">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <ImageView
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp" />
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7" android:gravity="center">
 
+<<<<<<< HEAD
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="@string/soxilio"
+                android:textColor="@color/colorPrimary"
+                android:textFontWeight="bold"
+                android:textSize="40sp"
+                app:fontFamily="@font/happy_monkey" />
+=======
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/soxilio"
+            android:fontFamily="@font/happy_monkey"
+            android:textFontWeight="bold"
+            android:textSize="40sp"
+            android:textColor="@color/colorPrimary"/>
+>>>>>>> Interfaz
+
+        </RelativeLayout>
+
+    
     <ScrollView
+        android:gravity="center"
+        android:layout_weight="0.3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -27,38 +61,48 @@
             <Button
                 android:id="@+id/btn_alerta"
                 android:text="Alerta"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_juegos"
                 android:text="Juegos"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_configurar"
                 android:text="Configurar"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_informacion"
                 android:text="Informacion"
-                android:layout_width="wrap_content"
+                style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_como_usar"
                 android:text="Como usar"
-                android:layout_width="wrap_content"
+                android:layout_marginBottom="40dp"
+                style="@style/button_style"
+                android:fontFamily="@font/happy_monkey"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content" />
-
-
-
 
         </LinearLayout>
 
     </ScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
