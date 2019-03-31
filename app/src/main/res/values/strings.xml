@@ -10,5 +10,13 @@
     <string name="inundacion">Inundacion</string>
     <string name="envio_activado">EL envio de automatico de mensajes esta activado cada 10 minutos, Apagarlo si se encuentra a salvo</string>
     <string name="envio_desactivado">Envio Automatico Desactivado</string>
+    <string name="incendio_ayuda">Hay un incendio ayuda </string>
+    <string name="inundacion_ayuda">Hay un inundacion ayuda </string>
+    <string name="terremoto_ayuda">Hay un terremoto ayuda</string>
+    <string name="incendio">Incendio</string>
+    <string name="sistema_de_emergencia">Sistema de Emergencia</string>
+    <string name="inundaciones">Inundaciones</string>
+    <string name="terremotos">Terremotos</string>
+    <string name="parar_el_envio">Parar el envio</string>
 
 </resources>

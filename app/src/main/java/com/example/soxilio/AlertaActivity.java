@@ -102,9 +102,8 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.card_one:
                 aux = 0;
                 startRepeating();
-                enviarWhatsApp(v,"Incendio ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactos("Hay un incendio ayuda");
-                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
+                enviarWhatsApp(v,getString(R.string.incendio_ayuda)+glink,"+591" + numeros.get(0));
+                mandarSmsContactos(getString(R.string.incendio_ayuda));
                 txtTip.setText(R.string.envio_activado);
                 break;
 
@@ -112,9 +111,8 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.card_two:
                 aux = 0;
                 startRepeating();
-                enviarWhatsApp(v,"Inundacion ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactos("Hay un inundacion ayuda");
-                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
+                enviarWhatsApp(v,getString(R.string.inundacion_ayuda)+glink,"+591" + numeros.get(0));
+                mandarSmsContactos(getString(R.string.inundacion_ayuda));
                 txtTip.setText(R.string.envio_activado);
                 break;
 
@@ -122,17 +120,15 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.card_three:
                 aux = 0;
                 startRepeating();
-                enviarWhatsApp(v,"Terremoto ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactos("Hay un terremoto ayuda");
-                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
+                enviarWhatsApp(v,getString(R.string.terremoto_ayuda)+glink,"+591" + numeros.get(0));
+                mandarSmsContactos(getString(R.string.terremoto_ayuda));
                 txtTip.setText(R.string.envio_activado);
                 break;
 
             //Detener
             case R.id.card_four:
-                aux = 0;
                 stopRepeating();
-                Toast.makeText(getApplicationContext(),"Desactivado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
+                aux = 0;
                 txtTip.setText(R.string.envio_desactivado);
                 break;
 
@@ -206,7 +202,8 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public void run() {
             if(aux >=1){
-                mandarSms("Auxilio! "+mensaje+"\n"+ glink,"+59167305722");
+//                mandarSms("Auxilio! "+mensaje+"\n"+ glink,"+59167305722");
+                mandarSmsContactos("Auxilio");
             }else{
                 aux++;
             }
