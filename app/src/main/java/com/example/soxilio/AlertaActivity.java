@@ -151,12 +151,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         mensaje = "Mi ubicacion es: "+"\nLatitud: " +location.getLatitude()+"\n"
                 +"Longitud: "+location.getLongitude();
 
-<<<<<<< HEAD
         glink = "https://www.google.com.bo/maps/@"+location.getLatitude()+","+location.getLongitude()+",14z?hl=es";
-=======
-//        Toast.makeText(getApplicationContext(),"Mi ubicacion actual es Latitud: "
-        //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
->>>>>>> 2dc5679ecab3a0c51eaea9e4a8f25043959cebfe
     }
 
     @Override
@@ -198,8 +193,5 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-<<<<<<< HEAD
 
-=======
->>>>>>> 2dc5679ecab3a0c51eaea9e4a8f25043959cebfe
 }
