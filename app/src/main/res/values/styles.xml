@@ -23,4 +23,16 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
+    <style name="textViewStyle">
+        <item name="android:fontFamily">Bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="cardViewStyle">
+        <item name="android:fontFamily">Bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+
+
 </resources>

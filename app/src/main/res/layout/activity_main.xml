@@ -8,9 +8,12 @@
     tools:context=".MainActivity">
 
 
-    <ImageView
+    <TextView
         android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"
+        android:text="@string/app_name"
+        style="@style/textViewStyle"
+        android:textSize="65sp"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="250dp" />
 
@@ -30,16 +33,8 @@
                 android:text="Alerta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RaisedButtonDark"
+                style="@style/button_style"
                 android:layout_marginVertical="10dp"/>
-
-            <Button
-                android:layout_marginVertical="10dp"
-                android:id="@+id/btn_juegos"
-                android:text="Juegos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RaisedButtonDark"/>
 
             <Button
                 android:layout_marginVertical="10dp"
@@ -47,7 +42,7 @@
                 android:text="Configurar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RaisedButtonDark"/>
+                style="@style/button_style"/>
 
             <Button
                 android:layout_marginVertical="10dp"
@@ -55,7 +50,7 @@
                 android:text="Informacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RaisedButtonDark"/>
+                style="@style/button_style"/>
 
             <Button
                 android:layout_marginVertical="10dp"
@@ -63,7 +58,7 @@
                 android:text="Como usar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RaisedButtonDark"/>
+                style="@style/button_style"/>
 
         </LinearLayout>
 
