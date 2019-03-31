@@ -26,7 +26,7 @@ public class ConfigurarActivity extends AppCompatActivity implements View.OnClic
     private Button aceptar;
     private EditText numero;
     private String celular;
-    private List<String> numeros;
+    public List<String> numeros;
     private ListView lsNumeros;
     public int keyNumber = 0;
     public String keyIterator_string = "";
