@@ -17,8 +17,6 @@
     <string name="terremotos">Terremotos</string>
     <string name="parar_el_envio">Parar el envio</string>
     <string name="gracias">Estoy bien Gracias</string>
-
-        <string name="app_name">Soxilio</string>
         <string name="intro">Para usar Soxililio primeramente usted debe dirigirse al boton de configuracion:</string>
         <string name="conf">Registre los numeros de emergencia locales que seran los que recibiran los mensajes de alerta y la aplicacion estara lista para funcionar</string>
         <string name="fina">Finalemente presione el boton de alerta y seleccione su emergencia Y la ayuda ira en camino</string>
