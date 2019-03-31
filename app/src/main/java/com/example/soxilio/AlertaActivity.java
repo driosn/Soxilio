@@ -32,6 +32,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private Handler mHandler = new Handler();
 
     public String glink = "";
+    public int aux = 0;
 
 
 
@@ -84,23 +85,27 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
             //Incendios
             case R.id.card_one:
-                enviarWhatsApp(v,"Incendio ayuda "+glink,"+59167305722");
-                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
                 startRepeating();
+
+                enviarWhatsApp(v,"Incendio ayuda "+glink,"+59167305722");
+//                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
+//                startRepeating();
                 break;
 
             //Inundaciones
             case R.id.card_two:
+                startRepeating();
                 enviarWhatsApp(v,"Inundacion ayuda "+glink,"+59167305722");
                 mandarSms("Hay un Inundacion ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-                startRepeating();
+  //              startRepeating();
                 break;
 
             //Terremotos
             case R.id.card_three:
+                startRepeating();
                 enviarWhatsApp(v,"Terremoto ayuda "+glink,"+59167305722");
                 mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-                startRepeating();
+//                startRepeating();
                 break;
 
             //Detener
@@ -177,7 +182,11 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private Runnable mToasRunnable = new Runnable() {
         @Override
         public void run() {
-            mandarSms("Auxilio! "+mensaje+"\n"+ glink,"+59167305722");
+            if(aux >=1){
+                mandarSms("Auxilio! "+mensaje+"\n"+ glink,"+59167305722");
+            }else{
+                aux++;
+            }
 
 //            Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
             mHandler.postDelayed(this,600000);
