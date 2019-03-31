@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,13 +18,23 @@ import android.support.v7.widget.CardView;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AlertaActivity extends AppCompatActivity implements View.OnClickListener, LocationListener {
 
     CardView cardOne, cardTwo, cardThree, cardFour;
     private static final int PERMISSION_REQUEST_CODE = 1;
     private String mensaje = "";
+    private String keyIterator_string = "";
+    private int keyIterator_int = 0;
+    List<String> numeros;
+    TextView pruebita;
 
     //gps
     protected LocationManager locationManager;
@@ -51,7 +62,13 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         cardThree.setOnClickListener(this);
         cardFour.setOnClickListener(this);
 
+        numeros = new ArrayList<>();
 
+        pruebita = findViewById(R.id.txt_pruebita);
+
+        createArrayNumbers();
+
+        TextView pruebita = (TextView) findViewById(R.id.txt_pruebita);
 
         // Pidiendo permiso para mandar sms
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -86,28 +103,34 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             //Incendios
             case R.id.card_one:
                 startRepeating();
-                enviarWhatsApp(v,"Incendio ayuda "+glink,"+59167305722");
-                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
+                enviarWhatsApp(v,"Incendio ayuda "+glink,"+591" + numeros.get(0));
+//                mandarSmsContactosIncendio();
+                mandarSmsContactos("Hay un incendio ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Inundaciones
             case R.id.card_two:
                 startRepeating();
-                enviarWhatsApp(v,"Inundacion ayuda "+glink,"+59167305722");
-                mandarSms("Hay un Inundacion ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-                startRepeating();
+                enviarWhatsApp(v,"Inundacion ayuda "+glink,"+591" + numeros.get(0));
+//                mandarSmsContactosInundacion();
+                mandarSmsContactos("Hay un inundacion ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Terremotos
             case R.id.card_three:
                 startRepeating();
-                enviarWhatsApp(v,"Terremoto ayuda "+glink,"+59167305722");
-                mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
+                enviarWhatsApp(v,"Terremoto ayuda "+glink,"+591" + numeros.get(0));
+//                mandarSmsContactosTerremoto();
+                mandarSmsContactos("Hay un terremoto ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Detener
             case R.id.card_four:
                 stopRepeating();
+                Toast.makeText(getApplicationContext(),"Desactivado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
         }
@@ -184,10 +207,49 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             }else{
                 aux++;
             }
+
 //            Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
             mHandler.postDelayed(this,600000);
 
         }
     };
+/*
+    private void mandarSmsContactosIncendio(){
+        for(int i=0; i<numeros.size(); i++){
+            mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
+        }
+    }
 
+    private void mandarSmsContactosInundacion(){
+        for(int i=0; i<numeros.size(); i++){
+            mandarSms("Hay una Inundacion ayuda "+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
+        }
+    }
+
+    private void mandarSmsContactosTerremoto(){
+        for(int i=0; i<numeros.size(); i++){
+            mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
+        }
+    }
+*/
+    private void mandarSmsContactos(String texto){
+        for(int i=0; i<numeros.size(); i++){
+            mandarSms(texto+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
+        }
+    }
+
+    public void createArrayNumbers(){
+        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
+        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
+
+        keyIterator_string = keyPreferences.getString("keyVal", "");
+        if(keyIterator_string.length() != 0){
+            keyIterator_int = Integer.parseInt(keyIterator_string);
+            for(int i=1; i<=keyIterator_int; i++){
+                //Toast.makeText(this,  numbers.getString(Integer.toString(i), ""), Toast.LENGTH_SHORT).show();
+                numeros.add(numbers.getString(Integer.toString(i), ""));
+                Log.d("numbers: ", numbers.getString(Integer.toString(i), ""));
+            }
+        }
+    }
 }
