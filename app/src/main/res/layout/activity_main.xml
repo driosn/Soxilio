@@ -1,108 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.soxilio.MainActivity"
-    android:background="@android:color/white">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
 
-        <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.7" android:gravity="center">
+    <ImageView
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp" />
 
-<<<<<<< HEAD
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="@string/soxilio"
-                android:textColor="@color/colorPrimary"
-                android:textFontWeight="bold"
-                android:textSize="40sp"
-                app:fontFamily="@font/happy_monkey" />
-=======
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/soxilio"
-            android:fontFamily="@font/happy_monkey"
-            android:textFontWeight="bold"
-            android:textSize="40sp"
-            android:textColor="@color/colorPrimary"/>
->>>>>>> Interfaz
-
-        </RelativeLayout>
-
-    
     <ScrollView
-        android:gravity="center"
-        android:layout_weight="0.3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingHorizontal="30dp">
 
             <Button
                 android:id="@+id/btn_alerta"
                 android:text="Alerta"
-                style="@style/button_style"
-                android:fontFamily="@font/happy_monkey"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RaisedButtonDark"
+                android:layout_marginVertical="10dp"/>
 
             <Button
+                android:layout_marginVertical="10dp"
                 android:id="@+id/btn_juegos"
                 android:text="Juegos"
-                style="@style/button_style"
-                android:fontFamily="@font/happy_monkey"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RaisedButtonDark"/>
 
             <Button
+                android:layout_marginVertical="10dp"
                 android:id="@+id/btn_configurar"
                 android:text="Configurar"
-                style="@style/button_style"
-                android:fontFamily="@font/happy_monkey"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RaisedButtonDark"/>
 
             <Button
+                android:layout_marginVertical="10dp"
                 android:id="@+id/btn_informacion"
                 android:text="Informacion"
-                style="@style/button_style"
-                android:fontFamily="@font/happy_monkey"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RaisedButtonDark"/>
 
             <Button
+                android:layout_marginVertical="10dp"
                 android:id="@+id/btn_como_usar"
                 android:text="Como usar"
-                android:layout_marginBottom="40dp"
-                style="@style/button_style"
-                android:fontFamily="@font/happy_monkey"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RaisedButtonDark"/>
 
         </LinearLayout>
 
     </ScrollView>
 
-    </LinearLayout>
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
