@@ -18,7 +18,10 @@ import android.support.v7.widget.CardView;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private String keyIterator_string = "";
     private int keyIterator_int = 0;
     List<String> numeros;
+    TextView pruebita;
 
     //gps
     protected LocationManager locationManager;
@@ -58,10 +62,13 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         cardThree.setOnClickListener(this);
         cardFour.setOnClickListener(this);
 
-        SharedPreferences keyPreferences = getSharedPreferences("keyValue", Context.MODE_PRIVATE);
-        SharedPreferences numbers = getSharedPreferences("numbers", Context.MODE_PRIVATE);
         numeros = new ArrayList<>();
+
+        pruebita = findViewById(R.id.txt_pruebita);
+
         createArrayNumbers();
+
+        TextView pruebita = (TextView) findViewById(R.id.txt_pruebita);
 
         // Pidiendo permiso para mandar sms
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -97,26 +104,33 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.card_one:
                 startRepeating();
                 enviarWhatsApp(v,"Incendio ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactosIncendio();
+//                mandarSmsContactosIncendio();
+                mandarSmsContactos("Hay un incendio ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Inundaciones
             case R.id.card_two:
                 startRepeating();
                 enviarWhatsApp(v,"Inundacion ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactosInundacion();
+//                mandarSmsContactosInundacion();
+                mandarSmsContactos("Hay un inundacion ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Terremotos
             case R.id.card_three:
                 startRepeating();
                 enviarWhatsApp(v,"Terremoto ayuda "+glink,"+591" + numeros.get(0));
-                mandarSmsContactosTerremoto();
+//                mandarSmsContactosTerremoto();
+                mandarSmsContactos("Hay un terremoto ayuda");
+                Toast.makeText(getApplicationContext(),"Activado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
             //Detener
             case R.id.card_four:
                 stopRepeating();
+                Toast.makeText(getApplicationContext(),"Desactivado el envio automatico de mensajes", Toast.LENGTH_LONG).show();
                 break;
 
         }
@@ -199,7 +213,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-
+/*
     private void mandarSmsContactosIncendio(){
         for(int i=0; i<numeros.size(); i++){
             mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
@@ -215,6 +229,12 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private void mandarSmsContactosTerremoto(){
         for(int i=0; i<numeros.size(); i++){
             mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
+        }
+    }
+*/
+    private void mandarSmsContactos(String texto){
+        for(int i=0; i<numeros.size(); i++){
+            mandarSms(texto+"\n"+mensaje+"\n"+ glink,"+591" + numeros.get(i));
         }
     }
 
