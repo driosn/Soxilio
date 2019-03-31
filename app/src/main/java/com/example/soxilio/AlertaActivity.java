@@ -1,6 +1,7 @@
 package com.example.soxilio;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -30,6 +31,8 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     //Tiempo
     private Handler mHandler = new Handler();
 
+    public String glink = "";
+
 
 
     @Override
@@ -46,6 +49,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         cardTwo.setOnClickListener(this);
         cardThree.setOnClickListener(this);
         cardFour.setOnClickListener(this);
+
 
 
         // Pidiendo permiso para mandar sms
@@ -72,39 +76,46 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,  this);
         }
-
-
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
 
+            //Incendios
             case R.id.card_one:
-                mandarSms();
-                break;
-
-            case R.id.card_two:
-                openWhatsApp(v);
-                break;
-
-            case R.id.card_three:
+                enviarWhatsApp(v,"Incendio ayuda "+glink,"+59167305722");
+                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
                 startRepeating();
                 break;
 
-            case R.id.card_four:
+            //Inundaciones
+            case R.id.card_two:
+                enviarWhatsApp(v,"Inundacion ayuda "+glink,"+59167305722");
+                mandarSms("Hay un Inundacion ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
+                startRepeating();
+                break;
 
+            //Terremotos
+            case R.id.card_three:
+                enviarWhatsApp(v,"Terremoto ayuda "+glink,"+59167305722");
+                mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
+                startRepeating();
+                break;
+
+            //Detener
+            case R.id.card_four:
+                stopRepeating();
                 break;
 
         }
     }
 
-    private void mandarSms(){
+    private void mandarSms(String mensaje, String destinatario){
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("+59167305722",null,"" +
-                    "Hay un Terremoto ayuda :'v ",null,null);
+            smsManager.sendTextMessage(destinatario,null,"" +
+                    mensaje,null,null);
             Toast.makeText(getApplicationContext(),"Mensaje Enviado",Toast.LENGTH_SHORT).show();
         }
         catch (Exception e){
@@ -114,12 +125,13 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    public void openWhatsApp(View view){
+    public void enviarWhatsApp(View view,String mensaje, String destinatario){
+
         try {
-            String text = "This is a test";
-            String toNumber = "+59167305722";
+            String texto = mensaje;
+            String numero = destinatario;
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+toNumber +"&text="+text));
+            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+numero +"&text="+texto));
             startActivity(intent);
         }
         catch (Exception e){
@@ -131,11 +143,10 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onLocationChanged(Location location) {
-        mensaje = "Mi ubicacion actual es Latitud: " +location.getLatitude()
+        mensaje = "Mi ubicacion es: "+"\nLatitud: " +location.getLatitude()+"\n"
                 +"Longitud: "+location.getLongitude();
 
-//        Toast.makeText(getApplicationContext(),"Mi ubicacion actual es Latitud: "
-  //      + location.getLatitude()+" Longitud: "+ location.getLongitude(),Toast.LENGTH_SHORT).show();
+        glink = "https://www.google.com.bo/maps/@"+location.getLatitude()+","+location.getLongitude()+",14z?hl=es";
     }
 
     @Override
@@ -156,7 +167,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     // Repetidor
 
     public void startRepeating(){
-//        mHandler.postDelayed(mToasRunnable,5000);
         mToasRunnable.run();
     }
 
@@ -167,11 +177,12 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
     private Runnable mToasRunnable = new Runnable() {
         @Override
         public void run() {
-            Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
-            mHandler.postDelayed(this,5000);
+            mandarSms("Auxilio! "+mensaje+"\n"+ glink,"+59167305722");
+
+//            Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
+            mHandler.postDelayed(this,600000);
 
         }
     };
-
 
 }
