@@ -172,6 +172,7 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="8dp">
+                startRepeating();
 
                     <LinearLayout
                         android:layout_width="wrap_content"
