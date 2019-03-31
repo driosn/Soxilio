@@ -86,10 +86,8 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             //Incendios
             case R.id.card_one:
                 startRepeating();
-
                 enviarWhatsApp(v,"Incendio ayuda "+glink,"+59167305722");
-//                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-//                startRepeating();
+                mandarSms("Hay un Incendio ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
                 break;
 
             //Inundaciones
@@ -97,7 +95,7 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
                 startRepeating();
                 enviarWhatsApp(v,"Inundacion ayuda "+glink,"+59167305722");
                 mandarSms("Hay un Inundacion ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-  //              startRepeating();
+                startRepeating();
                 break;
 
             //Terremotos
@@ -105,7 +103,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
                 startRepeating();
                 enviarWhatsApp(v,"Terremoto ayuda "+glink,"+59167305722");
                 mandarSms("Hay un Terremoto ayuda "+"\n"+mensaje+"\n"+ glink,"+59167305722");
-//                startRepeating();
                 break;
 
             //Detener
@@ -187,7 +184,6 @@ public class AlertaActivity extends AppCompatActivity implements View.OnClickLis
             }else{
                 aux++;
             }
-
 //            Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
             mHandler.postDelayed(this,600000);
 
